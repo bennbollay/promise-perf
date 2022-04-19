@@ -6,9 +6,9 @@
 The Promise Perf library allows you to instrument a Promise chain - any sequence of calls that start with an
 `await` or `new Promise` - to get reporting about where time was spent in that chain.
 
-This is extremely useful when tracing out HTTP calls to determine which operations were the most expensive and
-best targets for adding caching, or any complicated long-duration operation that is not computationally bound
-(where traditional performance analysis tools would shine) but instead spend a lot of time waiting on external
+The library is extremely useful when tracing out HTTP calls to determine which operations were the most expensive and
+best targets for adding caching or any complicated long-duration operation that is not computationally bound
+(where traditional performance analysis tools would shine) but instead, spend a lot of time waiting on external
 services.
 
 # Features
@@ -16,7 +16,7 @@ services.
 Promise Perf was written to satisfy a variety of needs when developing `async` based systems bound more by
 network io or remote service performance than computational taskloads.  As such, it supports:
 
-  * Capturing traces from `Promise` heirarchies via `PromisePerf`.
+  * Capturing traces from `Promise` hierarchies via `PromisePerf`.
   * Capturing traces from async-based Express handler chains via `ExpressPerf`.
   * Leveraging [source-map](https://npmjs.org/packages/source-map), *if installed*, to translate compiled
   JavaScript with `.js.map` files to their original `.ts` files.
@@ -36,7 +36,7 @@ Then, import the package in to the top level `Promise` or `async` function you w
 import { IHookRecords, ExpressPerf, annotateSource, fileToString } from 'promise_perf';
 ```
 
-Simply wrap the invocation of an asynchronous function within a `PromisePerf` function, and parse the
+Wrap the invocation of an asynchronous function within a `PromisePerf` function, and parse the
 resulting records as desired.
 
 ```typescript
@@ -70,7 +70,7 @@ console.log(
 # How it works
 
 Promise Perf uses both [async_hook](https://nodejs.org/api/async_hooks.html) as well as
-[AsyncLocalStorage](https://nodejs.org/api/async_context.html#class-asynclocalstorage) in order to track the
+[AsyncLocalStorage](https://nodejs.org/api/async_context.html#class-asynclocalstorage) to track the
 lifespan of individual `Promise` objects within a particular `Promise` chain.
 
 Additionally, [source-map](https://npmjs.org/packages/source-map) is used to optionally support pretty-printing output based on TypeScript `.js.map` files.
@@ -105,8 +105,7 @@ await PromisePerf.trace(testFunc, (rec: IHookRecords) => (records = rec));
 ```
 
 When the function completes and the `testFunc` promise resolves, the supplied callback will be invoked with
-the performance records as the parameter.  We can save those to a local variable `records` and then print out
-the results, for just the `basic.js` file:
+the performance records as the parameter.  We can save those to a local variable `records` and then print out the results for just the `basic.js` file:
 
 ```javascript
 console.log(
@@ -135,8 +134,7 @@ line of text corresponds to the line of code:
 
 ## Express Endpoint
 
-Measuring the output and identifying hot spots or opportunities for caching in an express endpoint was one of
-the key values around building this - what was most of the time being spent on while servicing a request?
+Measuring the output and identifying hot spots or opportunities for caching in an express endpoint was one of the key values around building this - what was most of the time being spent on while servicing a request?
 
 Using a simple express router, let's see what Promise Perf can tell show:
 
@@ -169,7 +167,7 @@ exports.router = router;
 
 Let's then add the Express middleware to the handling chain.  The first parameter is a function to indicate
 whether or not this request should be traced (allowing for easy enabling/disabling based on request
-parameters, for example), while the second handles the records that are created.
+parameters, for example), while the second handles the created records.
 
 ```typescript
 import { IHookRecords, ExpressPerf, annotateSource, fileToString } from 'promise_perf';

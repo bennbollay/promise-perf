@@ -1,7 +1,7 @@
 {
   "name": "promise_perf",
   "version": "1.0.0",
-  "description": "",
+  "description": "The Promise Perf library allows you to instrument a Promise chain",
   "main": "libc/index.js",
   "scripts": {
     "build": "tsc -b",
