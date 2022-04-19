@@ -1,8 +1,9 @@
 {
   "name": "promise_perf",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The Promise Perf library allows you to instrument a Promise chain",
   "main": "libc/index.js",
+  "files": ["libc/**/*"],
   "scripts": {
     "build": "tsc -b",
     "start": "node libc/index.js",
@@ -13,8 +14,8 @@
     "lint:check": "eslint . --ext .ts --color --ignore-path .eslintignore",
     "lint:fix": "eslint . --ext .ts --color --fix --ignore-path .eslintignore"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Benn Bollay",
+  "license": "BSD 2-Clause",
   "dependencies": {},
   "devDependencies": {
     "@types/express": "^4.17.13",
