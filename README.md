@@ -1,4 +1,4 @@
-![CICD](https://github.com/bennbollay/promise-perf/actions/workflows/main_publish_prod/badge.svg)
+[![CICD](https://github.com/bennbollay/promise-perf/actions/workflows/main_publish_prod.yml/badge.svg)](https://github.com/bennbollay/promise-perf/actions/workflows/main_publish_prod.yml)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 
 # Promise Performance Monitoring
