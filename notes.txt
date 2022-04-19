@@ -1,6 +1,0 @@
-Examples for README:
-  * Simple timeout.
-  * Simultaneous invocations to show that it only captures the primary.
-  * Simple express call with a superagent.get to google.
-  * .then/.catch
-  * Serializing output against source files
